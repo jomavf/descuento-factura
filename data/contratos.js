@@ -1,0 +1,22 @@
+module.exports = [
+    {
+        "banco_id":1,
+        "factura_id":1,
+        "codigo_unico":'287bc147b2874t218',
+        "monto_descuento":0.1283,
+        "valor_neto":123212,
+        "valor_recibido":1222.23,
+        "valor_entregado":12321,
+        "tcea":0.923847329,
+    },
+    {
+        "banco_id":2,
+        "factura_id":1,
+        "codigo_unico":'8273y182ueb2e8',
+        "monto_descuento":0.1233,
+        "valor_neto":23124,
+        "valor_recibido":343.2432,
+        "valor_entregado":123421,
+        "tcea":0.43892,
+    }
+]
