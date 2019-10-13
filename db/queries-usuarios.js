@@ -1,7 +1,5 @@
 const knex = require('./knex'); // connection
 
-
-
 module.exports = {
     getAll(){
         return knex('usuarios');
@@ -19,4 +17,3 @@ module.exports = {
         return knex('usuarios').where('id',id).del();
     }
 }
-

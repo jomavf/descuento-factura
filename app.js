@@ -5,6 +5,7 @@ const logger = require('morgan');
 const app = express();
 
 const usuarios = require('./api/usuarios');
+const deudores = require('./api/deudores');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
  app.use('/api/v1/usuarios',usuarios);
+ app.use('/api/v1/deudores',deudores);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

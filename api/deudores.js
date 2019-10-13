@@ -1,22 +1,22 @@
 const express = require('express');
 const router = express.Router();
 
-const queries = require('../db/queries-usuarios')
+const queries = require('../db/queries-deudores')
 
 function validId (req,res,next){
     if(!isNaN(req.params.id)) return next();
     next(new Error('Invalid ID'));
 }
 router.get('/',(req,res)=>{
-    queries.getAll().then(usuarios => {
-        return res.json(usuarios);
+    queries.getAll().then(result => {
+        return res.json(result);
     })
 })
 
 router.get('/:id', validId, (req,res,next)=>{
-    queries.getOne(req.params.id).then(usuario => {
-        if(usuario){
-            return res.json(usuario)
+    queries.getOne(req.params.id).then(object => {
+        if(object){
+            return res.json(object)
         } else{
             next();
         }
@@ -24,14 +24,14 @@ router.get('/:id', validId, (req,res,next)=>{
 })
 
 router.post('/', (req, res, next)=> {
-    queries.create(req.body).then(usuarios => {
-        return res.json(usuarios[0]);
+    queries.create(req.body).then(listCreated => {
+        return res.json(listCreated[0]);
     })
 })
 
 router.put('/:id', validId, (req,res,next) => {
-    queries.update(req.params.id, req.body).then( usuarios => {
-        return res.json(usuarios[0]);
+    queries.update(req.params.id, req.body).then( listUpdated => {
+        return res.json(listUpdated[0]);
     })
 })
 

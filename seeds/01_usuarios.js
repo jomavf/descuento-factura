@@ -1,4 +1,4 @@
-const usuarios = require('../usuarios')
+const usuarios = require('../data/usuarios')
 exports.seed = function(knex) {
   return knex('usuarios').del()
     .then(function () {
