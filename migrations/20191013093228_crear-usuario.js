@@ -13,6 +13,8 @@ exports.up = function(knex) {
         table.text('ruc');
         table.text('codigo_postal');
         table.text('nombre');
+        table.text('usuario');
+        table.text('password');
         table.text('apellido');
         table.text('nif');
     })
