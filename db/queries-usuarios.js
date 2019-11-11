@@ -15,5 +15,8 @@ module.exports = {
     },
     delete(id){
         return knex('usuarios').where('id',id).del();
+    },
+    checkUser(usuario,password){
+        return knex('usuarios').where('usuario',usuario).and.where('password',password)
     }
 }

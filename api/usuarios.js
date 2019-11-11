@@ -35,11 +35,25 @@ router.put('/:id', validId, (req,res,next) => {
     })
 })
 
+
 router.delete('/:id', validId, (req,res,next) => {
     queries.delete(req.params.id).then(() => {
         return res.json({
             deleted: true
         });
+    })
+})
+
+router.post('/login', (req, res, next)=> {
+    console.log('ENtre')
+    const { usuario, password } = req.body 
+    queries.checkUser(usuario,password).then(response => {
+        if(response.length > 0){
+            return res.status(200).json({ data: response[0] })
+        }
+        else {
+            return res.status(500).json({ message: "Error en la autenticacion"})
+        }
     })
 })
 
