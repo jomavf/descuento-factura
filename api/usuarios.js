@@ -45,7 +45,6 @@ router.delete('/:id', validId, (req,res,next) => {
 })
 
 router.post('/login', (req, res, next)=> {
-    console.log('ENtre')
     const { usuario, password } = req.body 
     queries.checkUser(usuario,password).then(response => {
         if(response.length > 0){

@@ -7,8 +7,10 @@ function validId (req,res,next){
     if(!isNaN(req.params.id)) return next();
     next(new Error('Invalid ID'));
 }
+
 router.get('/',(req,res)=>{
-    queries.getAll().then(result => {
+    const {userId} =  req.query
+    queries.getAll({userId}).then(result => {
         return res.json(result);
     })
 })

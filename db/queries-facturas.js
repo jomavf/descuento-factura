@@ -1,8 +1,13 @@
 const knex = require('./knex'); // connection
 
 module.exports = {
-    getAll(){
-        return knex('facturas');
+    getAll(query){
+        const knexQuery = knex('facturas')
+
+        if (query.userId){
+            return knexQuery.where('usuario_id',query.userId)
+        }
+        return knexQuery
     },
     getOne(id){
         return knex('facturas').where('id',id).first();
