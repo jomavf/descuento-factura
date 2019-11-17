@@ -6,12 +6,21 @@ exports.up = function(knex) {
         table.foreign('banco_id').references('bancos.id')
         table.integer('factura_id').unsigned();
         table.foreign('factura_id').references('facturas.id')
-        table.text('codigo_unico');
-        table.decimal('monto_descuento',10,2);
+        // Resultados
+        table.datetime("fecha_giro"); 
+        table.datetime("fecha_vencimiento");
+        table.decimal('valor_nominal',10,2);
+        table.integer('dias').unsigned();
+        table.decimal('retencion',10,2);
+        table.decimal('tasa_efectiva',10,7);
+        table.decimal('porcentaje_descuento',10,7);
+        table.decimal('descuento',10,2);
+        table.decimal('costos_iniciales',10,2);
+        table.decimal('costos_finales',10,2);
         table.decimal('valor_neto',10,2);
         table.decimal('valor_recibido',10,2);
         table.decimal('valor_entregado',10,2);
-        table.decimal('tcea',20,7);
+        table.decimal('tcea',10,7);
     })
 };
 

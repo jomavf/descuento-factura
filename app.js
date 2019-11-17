@@ -10,6 +10,8 @@ const deudores = require('./api/deudores');
 const bancos = require('./api/bancos');
 const facturas = require('./api/facturas');
 const contratos = require('./api/contratos');
+const tasas = require('./api/tasas');
+const calculos = require('./api/calculos');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -22,6 +24,8 @@ app.use(cookieParser());
  app.use('/api/v1/bancos',bancos);
  app.use('/api/v1/facturas',facturas);
  app.use('/api/v1/contratos',contratos);
+ app.use('/api/v1/tasas',tasas);
+ app.use('/api/v1/calculos',calculos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

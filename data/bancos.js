@@ -1,18 +1,20 @@
 module.exports = [
     {
-        "tasa":0.38746287,
-        "moneda":"Dolares",
+        "moneda_aceptada":"Dolares",
         "nombre":"Banco Scotiabank",
-        "costos_gastos_ope":123.4,
-        "tasa_moratoria":0.038479238,
-        "tasa_compensatoria":0.923729847,
+        "costos_iniciales":0,
+        "costos_finales":0,
     },
     {
-        "tasa":0.93875934857,
-        "moneda":"Soles",
+        "moneda_aceptada":"Soles",
         "nombre":"Banco Nacion",
-        "costos_gastos_ope":192.4,
-        "tasa_moratoria":0.83487,
-        "tasa_compensatoria":0.476374,
+        "costos_iniciales":87.6,
+        "costos_finales":0.7,
+    },
+    {
+        "moneda_aceptada":"Soles",
+        "nombre":"Banco Peru",
+        "costos_iniciales":123.4,
+        "costos_finales":12.4,
     }
 ]
