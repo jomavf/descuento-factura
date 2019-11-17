@@ -1,8 +1,13 @@
 const knex = require('./knex'); // connection
 
 module.exports = {
-    getAll(){
-        return knex('tasas');
+    // localhost:3000/api/v1/tasas?bancoId=2
+    getAll(query){
+        const knexQuery = knex('tasas')
+        if (query.bancoId){
+            return knexQuery.where('banco_id',query.bancoId)
+        }
+        return knexQuery
     },
     getOne(id){
         return knex('tasas').where('id',id).first();

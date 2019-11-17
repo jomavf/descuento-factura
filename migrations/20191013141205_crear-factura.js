@@ -11,6 +11,7 @@ exports.up = function(knex) {
         table.text('numero_serie');
         table.text('numero_correlativo');
         table.text('tipo_pago');
+        table.text('tipo_moneda');
         table.decimal('valor_venta',8,2);
         table.decimal('igv',16,7);
         table.decimal('precio_venta',20,2);

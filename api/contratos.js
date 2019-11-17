@@ -74,11 +74,6 @@ async function calculoDeDescuentoFactura(
   const valor_tasa = TasaModel.valor;
   tasa_efectiva = calcularTEP(valor_tasa, dias, plazo_tasa);
 
-  console.log("fechas", fecha_vencimiento, fecha_giro);
-  console.log("dias", dias);
-  console.log("plazo_tasa", plazo_tasa);
-  console.log("tasa_efectiva", tasa_efectiva);
-
   // Calcular la tasa descontada
   valor_nominal = Number(FacturaModel.valor_venta);
   porcentaje_descuento = tasa_efectiva / (1 + tasa_efectiva);

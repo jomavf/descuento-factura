@@ -11,6 +11,7 @@ module.exports = [
         "precio_venta":13123.1232,
         "ruc_imprenta":'20238192382',
         "tipo_pago":'Credito',
+        "tipo_monedad":'Dolares',
         "usuario_id":2,
         "valor_venta":57000
     },
@@ -26,6 +27,7 @@ module.exports = [
         "precio_venta":13123.1232,
         "ruc_imprenta":'20238192382',
         "tipo_pago":'Credito',
+        "tipo_monedad":'Soles',
         "usuario_id":2,
         "valor_venta":30000
     },

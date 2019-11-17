@@ -4,7 +4,8 @@ const router = express.Router();
 const queries = require('../db/queries-tasas')
 
 router.get('/',(req,res)=>{
-    queries.getAll().then(result => {
+    const {bancoId} =  req.query
+    queries.getAll({bancoId}).then(result => {
         return res.json(result);
     })
 })
