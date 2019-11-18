@@ -41,7 +41,8 @@ async function calculoDeDescuentoFactura(
   facturaId,
   bancoId,
   tasaId,
-  fechaGiro
+  fechaGiro,
+  userId
 ) {
   //Valores por calcular
   const fecha_giro = fechaGiro;
@@ -109,6 +110,7 @@ async function calculoDeDescuentoFactura(
   }
 
   const contrato = await queries.create({
+    user_id: userId,
     banco_id: bancoId,
     factura_id: facturaId,
     ...resultados
