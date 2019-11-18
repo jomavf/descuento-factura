@@ -6,6 +6,8 @@ exports.up = function(knex) {
         table.foreign('banco_id').references('bancos.id')
         table.integer('factura_id').unsigned();
         table.foreign('factura_id').references('facturas.id')
+        table.integer('usuario_id').unsigned();
+        table.foreign('usuario_id').references('usuarios.id')
         // Resultados
         table.datetime("fecha_giro"); 
         table.datetime("fecha_vencimiento");

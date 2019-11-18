@@ -2,6 +2,7 @@ module.exports = [
     {
         "banco_id":1,
         "factura_id":1,
+        "usuario_id":1,
         "fecha_giro": "12/05/2019",
         "fecha_vencimiento":"12/05/2007",
         "valor_nominal":1200,
