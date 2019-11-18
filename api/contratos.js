@@ -76,7 +76,8 @@ async function calculoDeDescuentoFactura(
   tasa_efectiva = calcularTEP(valor_tasa, dias, plazo_tasa);
 
   // Calcular la tasa descontada
-  valor_nominal = Number(FacturaModel.valor_venta);
+  valor_nominal = Number(FacturaModel.precio_venta);
+
   porcentaje_descuento = tasa_efectiva / (1 + tasa_efectiva);
   descuento = valor_nominal * porcentaje_descuento;
   valor_neto = valor_nominal * (1 - porcentaje_descuento);
