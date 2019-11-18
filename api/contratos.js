@@ -146,8 +146,8 @@ router.get("/:id", validId, (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { facturaId, bancoId, tasaId, fechaGiro } = req.body;
-  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaGiro).then(
+  const { facturaId, bancoId, tasaId, fechaGiro, userId } = req.body;
+  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaGiro, userId).then(
     result => {
       return res.json(result);
     }
