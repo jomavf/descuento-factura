@@ -82,11 +82,12 @@ async function calculoDeDescuentoFactura(
 
   costos_iniciales = Number(BancoModel.costos_iniciales);
   costos_finales = Number(BancoModel.costos_finales);
+  retencion = Number(BancoModel.retencion) || 0;
 
-  // valor_recibido = valor_neto - costes_iniciales - retencion;
-  // valor_entregado = valor_nominal + costes_finales - retencion;
-  valor_recibido = valor_neto -  costos_iniciales 
-  valor_entregado = valor_nominal + costos_finales 
+  valor_recibido = valor_neto - costes_iniciales - retencion;
+  valor_entregado = valor_nominal + costes_finales - retencion;
+  // valor_recibido = valor_neto -  costos_iniciales 
+  // valor_entregado = valor_nominal + costos_finales 
 
   tcea = TCEA(valor_recibido, valor_entregado, dias);
 
@@ -126,7 +127,8 @@ function validId(req, res, next) {
   next(new Error("Invalid ID"));
 }
 router.get("/", (req, res) => {
-  queries.getAll().then(result => {
+  const {userId} =  req.query
+  queries.getAll({userId}).then(result => {
     return res.json(result);
   });
 });
