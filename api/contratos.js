@@ -42,14 +42,14 @@ async function calculoDeDescuentoFactura(
   bancoId,
   tasaId,
   fechaGiro,
-  userId
+  usuarioId
 ) {
   //Valores por calcular
   const fecha_giro = fechaGiro;
   let fecha_vencimiento = null;
   let valor_nominal = null;
   let dias = null;
-  const retencion = null;
+  let retencion = null;
   let tasa_efectiva = null;
   let porcentaje_descuento = null;
   let descuento = null;
@@ -85,8 +85,8 @@ async function calculoDeDescuentoFactura(
   costos_finales = Number(BancoModel.costos_finales);
   retencion = Number(BancoModel.retencion) || 0;
 
-  valor_recibido = valor_neto - costes_iniciales - retencion;
-  valor_entregado = valor_nominal + costes_finales - retencion;
+  valor_recibido = valor_neto - costos_iniciales - retencion;
+  valor_entregado = valor_nominal + costos_finales - retencion;
   // valor_recibido = valor_neto -  costos_iniciales 
   // valor_entregado = valor_nominal + costos_finales 
 
@@ -110,7 +110,7 @@ async function calculoDeDescuentoFactura(
   }
 
   const contrato = await queries.create({
-    user_id: userId,
+    usuario_id: usuarioId,
     banco_id: bancoId,
     factura_id: facturaId,
     ...resultados
@@ -146,8 +146,8 @@ router.get("/:id", validId, (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { facturaId, bancoId, tasaId, fechaGiro, userId } = req.body;
-  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaGiro, userId).then(
+  const { facturaId, bancoId, tasaId, fechaGiro, usuarioId } = req.body;
+  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaGiro, usuarioId).then(
     result => {
       return res.json(result);
     }
