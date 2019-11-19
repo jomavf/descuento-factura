@@ -31,4 +31,36 @@ module.exports = [
         "usuario_id":2,
         "valor_venta":2543.72881355
     },
+    {
+        "deudor_id":1,
+        "igv":0.18,
+        "monto_neto_pago":0,
+        "numero_autorizacion_impresion":'1294448293218912',
+        "numero_correlativo":'1923u213903493',
+        "fecha_emision":'2019-09-16T22:54:49.509Z',
+        "fecha_vencimiento":'2019-12-17T22:54:49.509Z',
+        "numero_serie":'0123912012342',
+        "precio_venta":17700,
+        "ruc_imprenta":'202381933332',
+        "tipo_pago":'Credito',
+        "tipo_moneda":'Dolares',
+        "usuario_id":2,
+        "valor_venta":15000
+    },
+    {
+        "deudor_id":1,
+        "igv":0.18,
+        "monto_neto_pago":0,
+        "numero_autorizacion_impresion":'1294448293218912',
+        "numero_correlativo":'1923u213903493',
+        "fecha_emision":'2019-05-16T22:54:49.509Z',
+        "fecha_vencimiento":'2019-12-10T10:54:49.509Z',
+        "numero_serie":'0123912012342',
+        "precio_venta":25000,
+        "ruc_imprenta":'202381933332',
+        "tipo_pago":'Credito',
+        "tipo_moneda":'Dolares',
+        "usuario_id":2,
+        "valor_venta":21186.12312
+    },
 ]

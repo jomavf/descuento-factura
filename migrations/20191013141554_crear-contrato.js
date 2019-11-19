@@ -9,7 +9,7 @@ exports.up = function(knex) {
         table.integer('usuario_id').unsigned();
         table.foreign('usuario_id').references('usuarios.id')
         // Resultados
-        table.datetime("fecha_giro"); 
+        table.datetime("fecha_descuento"); 
         table.datetime("fecha_vencimiento");
         table.decimal('valor_nominal',10,2);
         table.integer('dias').unsigned();

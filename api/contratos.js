@@ -9,13 +9,19 @@ const queriesTasas = require("../db/queries-tasas");
 //Casos prueba http://www.e-financebook.com/aplicaciones/e-Book4/Anexos/Cap%2005%20-%20Tasa%20Descontada%20-%20Solucionario%2035.pdf
 
 function calcularDiferenciaFechasEnDias(fecha_inicial, fecha_final) {
+  console.log('fecha_inicial',fecha_inicial)
+  console.log('fecha_final',fecha_final)
   let fechaInicial = new Date(fecha_inicial);
   let fechaFinal = new Date(fecha_final);
   let timeDiff = Math.abs(fechaFinal.getTime() - fechaInicial.getTime());
+  
+  console.log('timeDiff',timeDiff)
+  
   let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
   if (diffDays < 0) {
     return new Error("Error al calcular diferencia entre fechas");
   }
+  console.log('DIAS', diffDays)
   return diffDays;
 }
 
@@ -31,6 +37,7 @@ function TCEA(valor_recibido, valor_entregado, numero_dias_transladar) {
   let p_valor_recibido = Number(valor_recibido)
   let p_valor_entregado = Number(valor_entregado)
   let p_numero_dias_transladar = Number(numero_dias_transladar)
+  console.log(p_valor_recibido,p_valor_entregado,p_numero_dias_transladar)
   let tcea =
   Math.pow(p_valor_entregado / p_valor_recibido, 360 / p_numero_dias_transladar) - 1;
   console.log("tcea", tcea);
@@ -41,11 +48,11 @@ async function calculoDeDescuentoFactura(
   facturaId,
   bancoId,
   tasaId,
-  fechaGiro,
+  fechaDescuento,
   usuarioId
 ) {
   //Valores por calcular
-  const fecha_giro = fechaGiro;
+  const fecha_descuento = fechaDescuento;
   let fecha_vencimiento = null;
   let valor_nominal = null;
   let dias = null;
@@ -70,7 +77,7 @@ async function calculoDeDescuentoFactura(
   // Calcular Tasa efectiva del periodo
   // obtener la tasa efectiva del banco y el periodo
   fecha_vencimiento = FacturaModel.fecha_vencimiento;
-  dias = calcularDiferenciaFechasEnDias(fecha_vencimiento, fecha_giro);
+  dias = calcularDiferenciaFechasEnDias(fecha_vencimiento, fecha_descuento);
   const plazo_tasa = TasaModel.plazo_tasa;
   const valor_tasa = TasaModel.valor;
   tasa_efectiva = calcularTEP(valor_tasa, dias, plazo_tasa);
@@ -94,7 +101,7 @@ async function calculoDeDescuentoFactura(
   tcea = TCEA(valor_recibido, valor_entregado, dias);
 
   let resultados = {
-    fecha_giro,
+    fecha_descuento,
     fecha_vencimiento,
     valor_nominal,
     dias,
@@ -147,8 +154,8 @@ router.get("/:id", validId, (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const { facturaId, bancoId, tasaId, fechaGiro, usuarioId } = req.body;
-  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaGiro, usuarioId).then(
+  const { facturaId, bancoId, tasaId, fechaDescuento, usuarioId } = req.body;
+  calculoDeDescuentoFactura(facturaId, bancoId, tasaId, fechaDescuento, usuarioId).then(
     result => {
       return res.json(result);
     }
