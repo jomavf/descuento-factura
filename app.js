@@ -12,6 +12,7 @@ const facturas = require('./api/facturas');
 const contratos = require('./api/contratos');
 const tasas = require('./api/tasas');
 const calculos = require('./api/calculos');
+const costosgastos = require('./api/costosgastos');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -26,6 +27,7 @@ app.use(cookieParser());
  app.use('/api/v1/contratos',contratos);
  app.use('/api/v1/tasas',tasas);
  app.use('/api/v1/calculos',calculos);
+ app.use('/api/v1/costosgastos',costosgastos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
