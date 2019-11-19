@@ -1,5 +1,47 @@
 module.exports = [
     {
+        "banco_id":1,
+        "nombre":"Comision de activacion",
+        "descripcion":"",
+        "valor":70,
+        "estado": 0,
+    },
+    {
+        "banco_id":1,
+        "nombre":"Gastos de administracion",
+        "descripcion":"",
+        "valor":0.70,
+        "estado": 0,
+    },
+    {
+        "banco_id":1,
+        "nombre":"Portes",
+        "descripcion":"",
+        "valor":2.00,
+        "estado": 1,
+    },
+    {
+        "banco_id":4,
+        "nombre":"Comision de activacion",
+        "descripcion":"",
+        "valor":90,
+        "estado": 0,
+    },
+    {
+        "banco_id":4,
+        "nombre":"Gastos de administracion",
+        "descripcion":"",
+        "valor":10.40,
+        "estado": 0,
+    },
+    {
+        "banco_id":4,
+        "nombre":"Portes",
+        "descripcion":"",
+        "valor":2.40,
+        "estado": 1,
+    },
+    {
         "banco_id":2,
         "nombre":"Comision de activacion",
         "descripcion":"",
