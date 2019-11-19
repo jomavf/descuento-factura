@@ -4,7 +4,7 @@ module.exports = {
     getAll(query){
         const knexQuery = knex('costosgastos')
 
-        if (query.userId){
+        if (query.bancoId){
             return knexQuery.where('banco_id',query.bancoId)
         }
         return knexQuery
