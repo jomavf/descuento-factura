@@ -4,6 +4,7 @@ exports.up = function(knex) {
         table.increments('id');
         table.text('nombre');
         table.text('moneda_aceptada');
+        table.decimal('retencion',8,2);
         table.decimal('costos_iniciales',8,2);
         table.decimal('costos_finales',8,2);
     })
